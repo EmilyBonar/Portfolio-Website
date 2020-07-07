@@ -18,7 +18,8 @@ section {
 h1 {
   font-size: 200%;
 }
-.Skills {
-  padding: 5px;
-  /*margin-top: 10px;*/
+
+div {  
+  margin-left: 20px;
+  margin-right: 20px;
 }
