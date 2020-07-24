@@ -25,6 +25,11 @@ h1 {
 	font-size: 200%;
 }
 
+.name {
+	font-family: "Permanent Marker", "Arial Black", sans-serif;
+	font-size: 50px;
+}
+
 div {
 	margin-left: 20px;
 	margin-right: 20px;
