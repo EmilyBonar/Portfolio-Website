@@ -25,6 +25,13 @@ h1 {
 	font-size: 200%;
 }
 
+@font-face {
+	font-family: "arial black";
+	src: local("arial black");
+	letter-spacing: -0.9px;
+	word-spacing: -0.4px;
+}
+
 .name {
 	font-family: "Permanent Marker", "Arial Black", sans-serif;
 	font-size: 50px;
