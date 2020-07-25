@@ -65,4 +65,13 @@ ul {
 	margin: 5px;
 	text-decoration: none;
 	color: #000000;
+	-webkit-filter: brightness(100%);
+	filter: brightness(100%);
+}
+.badge:hover {
+	-webkit-filter: brightness(80%);
+	filter: brightness(80%);
+	transition: all 0.5ms ease;
+	-moz-transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
 }
