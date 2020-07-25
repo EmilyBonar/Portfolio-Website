@@ -47,3 +47,22 @@ ul {
 	margin: 0 auto;
 	text-align: justify;
 }
+
+.list-inline {
+	padding-left: 0;
+	padding-bottom: 10px;
+	list-style: none;
+}
+
+.list-inline-item {
+	display: inline-block;
+}
+
+.badge {
+	background-color: lightblue;
+	padding: 5px;
+	border-radius: 5px;
+	margin: 5px;
+	text-decoration: none;
+	color: #000000;
+}
