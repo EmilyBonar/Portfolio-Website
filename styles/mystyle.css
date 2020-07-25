@@ -9,7 +9,13 @@ body {
 	/* background by SVGBackgrounds.com */
 }
 
-section {
+header {
+	text-align: center;
+	font-family: "Permanent Marker", "Arial Black", sans-serif;
+	font-size: 25px;
+}
+
+main {
 	display: flex;
 	flex-direction: column;
 	text-align: center;
@@ -25,10 +31,6 @@ p {
 	font-size: 16px;
 }
 
-h1 {
-	font-size: 200%;
-}
-
 @font-face {
 	font-family: "arial black";
 	src: local("arial black");
@@ -36,8 +38,7 @@ h1 {
 	word-spacing: -0.4px;
 }
 
-.name {
-	font-family: "Permanent Marker", "Arial Black", sans-serif;
+.title {
 	font-size: 50px;
 }
 
