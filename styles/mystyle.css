@@ -63,6 +63,8 @@ h3 {
 
 p {
 	font-size: 16px;
+	margin-top: 12px;
+	margin-bottom: 12px;
 }
 
 @font-face {
@@ -100,6 +102,22 @@ ul {
 
 .contact {
 	margin-top: 10px;
+}
+
+img {
+	max-width: 500px;
+	margin: auto;
+	padding: 0px;
+}
+
+figure {
+	margin: 0;
+}
+
+video {
+	max-width: 400px;
+	margin: auto;
+	padding-bottom: 20px;
 }
 
 .badge {
