@@ -143,3 +143,12 @@ video {
 	-moz-transition: all 0.5s ease;
 	-webkit-transition: all 0.5s ease;
 }
+
+.invisible {
+	display: none;
+}
+
+.clickable {
+	background-color: var(--bg-color);
+	border-radius: 5px;
+}
