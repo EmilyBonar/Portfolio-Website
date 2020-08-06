@@ -50,11 +50,20 @@ main {
 	background-color: rgb(255, 255, 255);
 	padding: 10px 50px;
 	border-radius: 5px;
+	font-size: 16px;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1000px) {
 	main {
 		width: 500px;
+	}
+}
+@media only screen and (max-width: 1000px) {
+	main {
+		font-size: 18px;
+	}
+	.Skills {
+		font-size: 20px;
 	}
 }
 
@@ -67,7 +76,6 @@ h3 {
 }
 
 p {
-	font-size: 16px;
 	margin-top: 12px;
 	margin-bottom: 12px;
 }
@@ -96,6 +104,10 @@ a:visited:not(.badge) {
 ul {
 	display: table;
 	text-align: justify;
+}
+
+.Skills {
+	font-size: 18px;
 }
 
 .list-inline {
