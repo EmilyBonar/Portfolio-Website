@@ -45,10 +45,10 @@ main {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	width: 70%;
+	width: 80%;
 	margin: auto;
 	background-color: rgb(255, 255, 255);
-	padding: 10px 50px;
+	padding: 10px 4%;
 	border-radius: 5px;
 	font-size: 16px;
 }
@@ -56,6 +56,7 @@ main {
 @media only screen and (min-width: 714px) {
 	main {
 		width: 500px;
+		padding: 10px 50px;
 	}
 
 	div {
@@ -66,6 +67,13 @@ main {
 		font-size: 25px;
 	}
 }
+
+.nav {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
 h2 {
 	text-align: center;
 }
@@ -119,10 +127,6 @@ ul {
 
 .list-inline-item {
 	display: inline-block;
-}
-
-.nav {
-	/* font-size: 50px; */
 }
 
 .contact {
