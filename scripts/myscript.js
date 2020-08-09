@@ -1,7 +1,10 @@
 [...document.getElementsByClassName("clickable")].forEach((element) => {
-	element.onclick = () => eventHandler(element, "onclick");
+	element.onclick = () => eventHandler(element, "click");
+	element.onkeydown = (event) => eventHandler(element, event.key);
 });
 
-function eventHandler(element, event) {
-	element.nextElementSibling.classList.toggle("invisible");
+function eventHandler(element, key) {
+	if (key != "Tab") {
+		element.nextElementSibling.classList.toggle("invisible");
+	}
 }
