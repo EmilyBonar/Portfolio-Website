@@ -100,8 +100,7 @@ p {
 }
 
 div {
-	margin-left: 10px;
-	margin-right: 10px;
+	margin: auto 0;
 }
 
 a:visited:not(.badge) {
@@ -165,6 +164,14 @@ video {
 	transition: all 0.5ms ease;
 	-moz-transition: all 0.5s ease;
 	-webkit-transition: all 0.5s ease;
+}
+
+pre {
+	background-color: rgb(220, 239, 245);
+	overflow: auto;
+	display: block;
+	padding: 5px;
+	border-radius: 2px;
 }
 
 .invisible {
