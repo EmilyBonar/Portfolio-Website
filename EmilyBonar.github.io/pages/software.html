@@ -191,8 +191,36 @@ function parseFiles() {
 				<p>
 					Making this was a helpful first step in learning layout, how HTML and
 					CSS deal with color, and using Javascript to affect the content of web
-					pages.
+					pages. In order to find the nearest color, I used the following code.
+					I employed a simple Euclidian distance formula, calculating the color
+					distance for all of the 140 named colors in comparison to the one
+					color selected. There is probably a more elegant or efficient way of
+					calculating this, but it works for this application.
 				</p>
+				<pre><code>function nearestColor(RGB) {
+    let regex = /[0-9]+/g;
+    let RGBarray = 
+        Array.from(regex[Symbol.matchAll](RGB), 
+            (x) => x[0]);
+    function distance(RGB1, RGB2) {
+        return (
+            (RGB2[0] - RGB1[0]) ** 2 +
+            (RGB2[1] - RGB1[1]) ** 2 +
+            (RGB2[2] - RGB1[2]) ** 2
+        );
+    }
+    let closestColor;
+    let dist = 195075;
+    for (color in colors) {
+        newdist = distance(RGBarray, 
+                    colors[color][1]);
+        if (newdist < dist) {
+            dist = newdist;
+            closestColor = color;
+        }
+    }
+    return closestColor;
+}</code></pre>
 				<hr />
 				<p>
 					I've made several very small indie games in the past, usually as
