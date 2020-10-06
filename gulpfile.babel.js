@@ -69,6 +69,16 @@ task(
 	),
 );
 
+task(
+	"deploy",
+	series(
+		copy,
+		"html_imports",
+		parallel(readSrcFiles, readDistFiles),
+		parseFiles,
+	),
+);
+
 function readSrcFiles() {
 	srcFileList = glob.sync("**/*", {
 		cwd: `./${source}`,
