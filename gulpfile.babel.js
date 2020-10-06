@@ -5,45 +5,48 @@ const changed = require("gulp-changed");
 var del = require("del");
 var glob = require("glob");
 
+var source = "src";
+var destination = "dist";
+
 export function copy() {
-	return src("./src/**/*")
-		.pipe(changed("./EmilyBonar.github.io"))
-		.pipe(dest("./EmilyBonar.github.io"));
+	return src(`./${source}/**/*`)
+		.pipe(changed(`./${destination}`))
+		.pipe(dest(`./${destination}`));
 }
 
 task("html_imports", function () {
-	return src("./src/**/*.html")
+	return src(`./${source}/**/*.html`)
 		.pipe(
 			htmlImport({
-				componentsPath: "./src/components/",
+				componentsPath: `./${source}/components/`,
 			}),
 		)
 
-		.pipe(dest("./EmilyBonar.github.io"));
+		.pipe(dest(`./${destination}`));
 });
 
 task("html_restore", function () {
-	return src("EmilyBonar.github.io/**/*.html", { allowEmpty: true })
+	return src(`${destination}/**/*.html`, { allowEmpty: true })
 		.pipe(
 			htmlImport({
-				componentsPath: "./src/components/",
+				componentsPath: `./${source}/components/`,
 				restore: true,
 			}),
 		)
-		.pipe(dest("./EmilyBonar.github.io"));
+		.pipe(dest(`./${destination}`));
 });
 
 task("serve", () => {
 	init({
 		server: {
-			baseDir: "./EmilyBonar.github.io",
+			baseDir: `./${destination}`,
 			index: "index.html",
 		},
 		notify: false,
 		injectChanges: true,
 	});
 	watch(
-		"./src/**/*",
+		`./${source}/**/*`,
 		series(
 			"copy",
 
@@ -51,13 +54,14 @@ task("serve", () => {
 			parseFiles,
 		),
 	);
-	watch("./EmilyBonar.github.io/**/*").on("change", series(reload));
+	watch(`./${destination}/**/*`).on("change", series(reload));
 });
 var srcFileList;
 var distFileList;
 task(
 	"default",
 	series(
+		copy,
 		"html_imports",
 		parallel(readSrcFiles, readDistFiles),
 		parseFiles,
@@ -65,25 +69,23 @@ task(
 	),
 );
 
-let source = "./src";
-let distrib = "./EmilyBonar.github.io/";
 function readSrcFiles() {
 	srcFileList = glob.sync("**/*", {
-		cwd: source,
+		cwd: `./${source}`,
 	});
 	return Promise.resolve("cleaned");
 }
 
 function readDistFiles() {
 	distFileList = glob.sync("**/*", {
-		cwd: distrib,
+		cwd: `./${destination}/`,
 	});
 	return Promise.resolve("cleaned");
 }
 function parseFiles() {
 	distFileList.forEach((el) => {
-		if (!srcFileList.includes(el)) {
-			console.log(del.sync([distrib + el]));
+		if (!srcFileList.includes(el) || el == "components") {
+			console.log(del.sync([`./${destination}/` + el]));
 		}
 	});
 	return Promise.resolve("cleaned");
