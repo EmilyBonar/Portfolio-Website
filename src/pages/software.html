@@ -40,6 +40,60 @@
 
 			<div class="personal">
 				<p>
+					I enjoy baking, and during the pandemic I decided to get back into
+					making sourdough.
+					<a href="https://www.emilybonar.com/Sourdough-Calculator/"
+						>Sourdough Calculator</a
+					>
+					started life as an Excel spreadsheet for my personal use, but when I
+					saw other people online having trouble with the same problem I
+					developed it into a website.
+				</p>
+				<p>
+					Sourdough is made using a starter, a mixture of flour and water that
+					you regularly feed, a portion of which you use whenever you bake. The
+					most common ratio of flour:water is 1:1 by weight, however other
+					ratios are possible. Personally, I use a 60% hydration starter, which
+					means that I add 5:3 flour:water. The problem is, most recipes are
+					written assuming your starter is 1:1, or 100% hydration. Therefore, if
+					you're not using that the total amounts of flour and water will be
+					thrown off and your bread might not come out the way you want it to.
+					What
+					<a href="https://www.emilybonar.com/Sourdough-Calculator/"
+						>Sourdough Calculator</a
+					>
+					does is convert recipes to adapt to your personal sourdough starter,
+					letting you use whatever hydration level you want without throwing off
+					the rest of the recipe.
+				</p>
+				<p>
+					The most challenging and informative part of this project was
+					developing my own custom tooltips. I wanted to be able to provide
+					information about terms used, in case someone coming to the page is a
+					novice baker wanting to learn more. Alt text isn't usable for that
+					purpose on mobile and I didn't want to require JavaScript, which lead
+					me to the following pure CSS solution.
+				</p>
+				<pre><code>[data-title]::after {
+	content: attr(data-title);
+	position: absolute;
+	visibility: hidden;
+	background-color: white;
+	border: 1px solid #020611;
+	border-radius: 5px;
+	padding: 5px;
+	bottom: 40px;
+	left: 0px;
+	width: 240px;
+	z-index: 10;
+}
+				
+[data-title]:hover::after {
+	visibility: visible;
+}
+				</code></pre>
+				<hr />
+				<p>
 					Building this website has been a great practical exploration of HTML,
 					CSS, and JavaScript. I had a basic understanding of them already, but
 					there's no better form of practice than actually making something.
@@ -114,8 +168,7 @@ function parseFiles() {
 					pages. In order to find the nearest color, I used the following code.
 					I employed a simple Euclidian distance formula, calculating the color
 					distance for all of the 140 named colors in comparison to the one
-					color selected. There is probably a more elegant or efficient way of
-					calculating this, but it works for this application.
+					color selected.
 				</p>
 				<pre><code>function nearestColor(RGB) {
     let regex = /[0-9]+/g;
@@ -165,7 +218,7 @@ function parseFiles() {
 					that's fun.
 				</p>
 				<img
-					style="display: block; margin: auto; image-rendering: pixelated;"
+					style="display: block; margin: auto; image-rendering: pixelated"
 					src="../media/idle.gif"
 					alt="A cute slime bouncing around"
 				/>
